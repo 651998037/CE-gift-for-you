@@ -1,0 +1,20 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">เพิ่มข้อมูล</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center"> 
+            <form action="/duty/add" method="post" class="w-50">
+                <div class="form-group">
+                    <label for="duty">หน้าที่</label>
+                    <input type="text" name="duty" placeholder="ชื่อ" class="form-control">
+                </div>
+                <a href="/duty/list" class="btn btn-primary">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

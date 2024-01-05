@@ -1,0 +1,20 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<body>
+    <h1 align="center"> แก้ไขข้อมูล</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">   
+            <form method="post" action="/dutyEdit/<%= data.id %>" class="w-50">
+                <div class="form-group">
+                    <label for="name">ชื่อ</label>
+                    <input type="text" class="form-control" id="name" name="duty" value="<%= data.duty %>" required>
+                </div>
+                <a href="/duty/list" class="btn btn-success">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-primary">บันทึก</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

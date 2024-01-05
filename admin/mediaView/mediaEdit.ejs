@@ -1,0 +1,21 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<body>
+    <h1 align="center"> แก้ไขข้อมูล</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">   
+            <form method="post" action="/mediaEdit/<%= data.id %>" class="w-50">
+                <div class="form-group">
+                    <label for="name">ชื่อ</label>
+                    <input type="text" class="form-control" id="name" name="name" value="<%= data.name %>" required>
+                </div>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+                <a href="/media/list" class="btn btn-primary">ย้อนกลับ</a>
+                
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

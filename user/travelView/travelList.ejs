@@ -1,0 +1,69 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<h1 align="center">ลักษณะการเดินทาง</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <table class="table table-bordered table-hover"> 
+                <thead>
+                    <tr>
+                        <th>ลำดับที่</th>
+                        <th>ลักษณะการเดินทาง</th>
+                        <th>เพิ่มเติม</th>
+                    </tr>
+                </thead>
+                <a href="/Utravel/add" class="btn btn-primary">เพิ่มข้อมูล</a>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].travel %></td>
+                                <td>
+                                    <a href="/Utravel/edit/<%= data[i].id %>" class="btn btn-primary">แก้ไข</a>
+                                    &nbsp;&nbsp;&nbsp;<a href="/Utravel/delete/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            
+            <!-- <a href="/pr" class="btn btn-danger">Back</a> -->
+        </div>
+    </div>
+</div>
+<h1 align="center">ลักษณะการเดินทาง</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <table class="table table-bordered table-hover"> 
+                <thead>
+                    <tr>
+                        <th>ลำดับที่</th>
+                        <th>ลักษณะการเดินทาง</th>
+                    </tr>
+                </thead>
+                <!-- <a href="/Utravel/add" class="btn btn-primary">เพิ่มข้อมูล</a> -->
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].travel %></td>
+                                <td>
+                                    <!-- <a href="/Utravel/edit/<%= data[i].id %>" class="btn btn-primary">แก้ไข</a>
+                                    &nbsp;&nbsp;&nbsp;<a href="/Utravel/delete/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a>  -->
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            
+            <!-- <a href="/pr" class="btn btn-danger">Back</a> -->
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

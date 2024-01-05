@@ -1,0 +1,31 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<h1 align="center">Add</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">
+            <form action="/Ucraftandtest/add" method="post" class="w-50">
+                <div class="form-group">
+                    <label for="withdraw">เบิก</label>
+                    <input type="text" class="form-control" id="withdraw" name="withdraw" value="" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="status">สถานะ:</label>
+                    <input type="text" class="form-control" id="status" name="status" value="" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="completiondate">วันที่เสร็จ:</label>
+                    <input type="date" class="form-control" id="completiondate" name="completiondate" value="" required>
+                </div>
+                <br>
+              <button type="submit" class="btn btn-success">บันทึก</button>
+                <a href="/Ucraftandtest/list" class="btn btn-primary">กลับ</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

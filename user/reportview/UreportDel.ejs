@@ -1,0 +1,21 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<body>
+    <h1 align="center" style="margin-top: 230px;">ต้องการลบหรือไม่</h1>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-md-12 d-flex justify-content-center">   
+                <form method="post" action="<%= data ? '/Ureport/delete' + data.id : '' %>"  class="w-120 mx-auto">
+                    <% if (data && data.isReport) { %>
+                        <a align="center" href="/Ureport/list" class="btn btn-primary" style="margin-top: 20px;">ย้อนกลับ</a>
+
+                    <% } else { %>
+                        <a align="center" href="/Ureport/list" class="btn btn-primary" style="margin-top: 20px;">ย้อนกลับ</a>
+                    <% } %>
+                    <button align="center" type="submit" class="btn btn-success" style="margin-top: 20px;">ยืนยัน</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include("../_footer"); -%>

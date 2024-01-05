@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    body {
+    color: white;
+}
+
+/* หรือถ้าคุณต้องการเฉพาะส่วนของแถบ navbar */
+.navbar a {
+    color: white;
+}
+
+/* และในกรณีที่ต้องการแต่งกับแถบแจ้งเตือน */
+.alert {
+    color: black; /* สีตัวหนังสือที่คุณต้องการ */
+}
+
+.navbar .dropdown-item {
+    color: black;
+}
+  </style>
+<head>
+    <title>Group01</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary">
+        <div class="me-3"></div>
+        <a href="/Uprepare/list" class="navbar-brand me-3">Digit Gift</a>
+        
+        <!-- <div class="dropdown me-3">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ระบบ</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">เจ้าหน้าที่</a>
+            <a class="dropdown-item" href="#">หน้าที่</a>
+            <a class="dropdown-item" href="#">โครงการ</a>
+            <a class="dropdown-item" href="#">หน้าที่รับผิดชอบ</a>
+          </div>
+        </div> -->
+
+        <div class="dropdown me-3">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ประชาสัมพันธ์</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/Umedia/list">สื่อ</a>
+            <a class="dropdown-item" href="/Uads/list">โฆษณา</a>
+            <a class="dropdown-item" href="/pr">ประชาสัมพันธ์</a>
+            <a class="dropdown-item" href="/Uprepare/list">สถานที่และวันที่บริจาค</a>
+          </div>
+        </div>
+
+        <div class="dropdown me-3">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">การรับบริจาค</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">ประเภทอุปกรณ์</a>
+            <a class="dropdown-item" href="#">รายการบริจาค</a>
+            <a class="dropdown-item" href="#">การบริจาค</a>
+            <a class="dropdown-item" href="/Uchecklist/list">ตรวจสอบอุปกรณ์</a>
+          </div>
+        </div>
+
+        <div class="dropdown me-3">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">คลังอุปกรณ์</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/Uroom/list">ห้อง</a>
+            <a class="dropdown-item" href="#">ที่เก็บ</a>
+            <a class="dropdown-item" href="#">รายการอุปกรณ์ในคลัง</a>
+          </div>
+        </div>
+
+        <div class="dropdown me-3">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">เบิกอุปกรณ์</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">ผู้อนุมัติ</a>
+            <a class="dropdown-item" href="#">การเบิก</a>
+            <a class="dropdown-item" href="#">รายการเบิก</a>
+            <a class="dropdown-item" href="/Ucraftandtest/list">ประกอบและทดสอบ</a>
+          </div>
+        </div>
+
+         <div class="dropdown me-3">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">การบริจาค</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/Udonateplace/list">สถานที่ที่บริจาค</a> 
+            <a class="dropdown-item" href="/Udeliveryperson/list">รายชื่อผู้ไปบริจาค</a>
+            <a class="dropdown-item" href="/Utravel/list">ประเภทการเดินทาง</a>
+             <a class="dropdown-item" href="/Uprepare/list">กำหนดการบริจาค</a>
+          </div>
+        </div> 
+
+        <div class="dropdown me-3">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">แจ้งปัญหา</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/Ureport/list">รับแจ้ง</a>
+            <a class="dropdown-item" href="/Uedit/list">แก้ไข</a>
+          </div>
+        </div>
+        <!-- <div class="ms-auto">
+          <a href="/person/list" class="btn btn-primary">เจ้าหน้าที่</a>
+      </div> -->
+
+        <div class="ms-auto">
+          <a href="/person/list" class="btn btn-primary">เจ้าหน้าที่</a>
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+        
+
+    </nav>
+    <br>
+    <br>
+    <br>
+    <!-- <%= JSON.stringify(session) %>  -->
+    <% if(session.success==false){ %>
+        <% for(var i=0 ; i<session.errors.errors.length; i++){ %>
+            <div class="alert alert-danger" role="alert">
+        <%= session.errors.errors[i] ["msg"]  %>
+            </div>
+      <% } session.success=null; } %>
+            <br>
+      <% if(session.success==true){ %>
+            <div class="alert alert-success" role="alert">
+        <%= session.topic %>
+            </div>
+      <% } session.success=null; %>

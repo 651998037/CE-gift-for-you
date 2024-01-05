@@ -1,0 +1,33 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<h1 align="center">เพิ่ม</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">
+            <form action="/Udonateplace/add" method="post" class="w-50">
+                <div class="form-group">
+                    <label for="place">สถานที่:</label>
+                    <input type="text" name="place" placeholder="ชื่อสถานที่" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="address">ที่อยู่:</label>
+                    <input type="text" name="address" placeholder="ที่อยู่" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="contactperson">ผู้ติดต่อ:</label>
+                    <input type="text" name="contactperson" placeholder="ผู้ติดต่อ" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="phone">เบอร์:</label>
+                    <input type="text" name="phone" placeholder="เบอร์ติดต่อ" class="form-control">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                <a href="/Udonateplace/list" class="btn btn-success">ย้อนกลับ</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

@@ -1,0 +1,50 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <form action="/Uedit/add" method="post">
+                <div class="form-group">
+                    <br>
+                    <label for="name"> คนแก้ไข </label>
+                    <select class="form-control" name="name">
+                        <option> กรุณาเลือก </option>
+                        <% if(data1){ %>
+                            <% for(var i=0;i<data1.length;i++){ %>
+                                <option value="<%= data1[i].id %>"> <%= data1[i].name %> </option>
+                            <% } %>
+                        <% } %>        
+                    </select>
+                </div>
+                <br>
+                <label for="problem"> ปัญหา </label>
+                <select class="form-control" name="problem">
+                    <option> กรุณาเลือก </option>
+                    <% if(data2){ %>
+                        <% for(var i=0;i<data2.length;i++){ %>
+                            <option value="<%= data2[i].id %>"> <%= data2[i].problem %> </option>
+                        <% } %>
+                    <% } %>        
+                </select>
+                <br>
+                <div class="form-group">
+                    <label for="edit">การดำเนินการ</label>
+                    <input type="text" name="carryout" placeholder="การดำเนินการ" class="form-control">
+                </div>
+                <br>
+                <br>
+                
+                <div class="form-group">
+                    <label for="edit">วันที่ดำเนินการ</label>
+                    <input type="date" name="carryoutday" placeholder="วันที่ดำเนินการ" class="form-control">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">เพิ่ม </button>
+                <a href="/Uedit/list" class="btn btn-danger">ย้อนกลับ</a>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

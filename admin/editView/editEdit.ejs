@@ -1,0 +1,48 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<body>
+    <h1 class="text-center">แก้ไขข้อมูล</h1>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12 d-flex justify-content-center">   
+                <form action="/edit/edit/<%= data4 && data4[0] ? data4[0].id : '' %>" method="post">
+                    <div class="form-group">
+                        <label for="editor">คนแก้</label>
+                        <select class="form-control" name="editor">
+                            <option value="">กรุณาเลือก</option>
+                            <% if (data1) { %>
+                                <% for (var i = 0; i < data1.length; i++) { %>
+                                    <option value="<%= data1[i].id %>" <% if(data4 && data4[0] && data1[i].id==data4[0].editor){ %>selected<% } %> ><%= data1[i].name %></option>
+                                <% } %>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="report">รับแจ้ง</label>
+                        <select class="form-control" name="report">
+                            <option value="">กรุณาเลือก</option>
+                            <% if (data2) { %>
+                                <% for (var i = 0; i < data2.length; i++) { %>
+                                    <option value="<%= data2[i].id %>" <% if(data4 && data4[0] && data2[i].id==data4[0].report){ %>selected<% } %> ><%= data2[i].problem %></option>
+                                <% } %>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="carryout">carryout:</label>
+                        <input type="text" class="form-control" id="carryout" name="carryout" value="<%= data4 && data4[0] ? data4[0].carryout : '' %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carryoutday">carryoutday:</label>
+                        <input type="date" class="form-control" id="carryoutday" name="carryoutday" value="<%= data4 && data4[0] ? data4[0].carryoutday : '' %>" required>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-success">บันทึก</button>
+                    <a href="/edit/list" class="btn btn-danger">กลับ</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include("../_footer"); -%>

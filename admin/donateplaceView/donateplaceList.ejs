@@ -1,0 +1,45 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">ที่บริจาค</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>ชื่อสถานที่</th>
+                        <th>ที่อยู่</th>
+                        <th>ผู้ติดต่อ</th>
+                        <th>เบอร์</th>
+                        <th>เพิ่มเติม</th>
+
+                    </tr>
+                </thead>
+                <a href="/donateplace/add" class="btn btn-primary">เพิ่มข้อมูล</a>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].place %></td>
+                                <td><%= data[i].address %></td>
+                                <td><%= data[i].contactperson %></td>
+                                <td><%= data[i].phone %></td>
+                                <td>
+                                    <a href="/donateplace/edit/<%= data[i].id %>" class="btn btn-success">แก้ไข</a>
+                                    <a href="/donateplace/delete/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

@@ -1,0 +1,38 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">โฆษณา</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <table class="table table-bordered table-hover"> 
+                <thead>
+                    <tr>
+                        <th>ลำดับที่</th>
+                        <th>ชื่อ</th>
+                        <th>เพิ่มเติม</th>
+                    </tr>
+                </thead>
+                <a href="/ads/add" class="btn btn-primary">เพิ่มโฆษณา</a>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].name %></td>
+                                <td>
+                                    <a href="/ads/edit/<%= data[i].id %>" class="btn btn-success">แก้ไข</a>
+                                    &nbsp;&nbsp;&nbsp;<a href="/ads/delete/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            
+            <!-- <a href="/pr" class="btn btn-danger">Back</a> -->
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

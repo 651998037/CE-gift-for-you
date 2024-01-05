@@ -1,0 +1,21 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">เพิ่มโฆษณา</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center"> 
+            <form action="/ads/add" method="post" class="w-50">
+                <div class="form-group">
+                    <label for="name">ชื่อ</label>
+                    <input type="text" name="name" placeholder="ชื่อ" class="form-control">
+                </div>
+                <a href="/ads/list" class="btn btn-primary">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

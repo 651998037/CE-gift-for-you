@@ -1,0 +1,41 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">ประกอบและทดสอบ</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15 mx-auto">
+            <table class="table table-bordered table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>เบิก</th>
+                        <th>สถานะ</th>
+                        <th>วันที่เสร็จ</th>
+                        <th>เพิ่มเติม</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].withdraw %></td>
+                                <td><%= data[i].status %></td>
+                                <td><%= data[i].completiondate.toISOString().split('T')[0] %></td>
+                                <td>
+                                    <a href="/craftandtestEdit/<%= data[i].id %>" class="btn btn-success" style="width: 80px;">แก้ไข</a>
+                                    <a href="/deletecraftandtest/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            <a href="/craftandtest/add" class="btn btn-primary">Add</a>
+            <!-- <a href="/pr" class="btn btn-danger">Back</a> -- >
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

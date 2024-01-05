@@ -1,0 +1,55 @@
+<%- include ('.../_header') %>
+<br>
+<br>
+<h3 align="center"> PR UPDATE </h3>
+<div class="container mt-5">
+    <div class="row">
+        <div class="row justify-content-center">
+        <div class="col-md-7">
+            <form action="/pr/update/<%= data4[0].id %>" method="post">
+                <div class="form-group">
+                    <label for="ads"> โฆษณา (Ads) </label> <a href="/ads/new"> เพิ่ม </a>
+                    <select class="form-control" id="ads" name="ads">
+                        <option> กรุณาเลือก </option>
+                        <% if(data1) { %>
+                        <% for(var i = 0; i<data1.length;i++){ %>
+                        <option value="<%= data1[i].id %>" <% if(data1[i].id==data4[0].ads) { %>selected<% } %>> <%= data1[i].name %></option>
+                    <% } %>
+                    <% } %>
+                    </select>
+                <div class="form-group">
+                    <label for="media"> สื่อ (Media) </label> <a href="/media/new"> เพิ่ม </a>
+                    <select class="form-control" id="media" name="media">
+                        <option> กรุณาเลือก </option>
+                        <% if(data2) { %>
+                        <% for(var i = 0; i<data2.length;i++){ %>
+                        <option value="<%= data2[i].id %>" <% if(data2[i].id==data4[0].media) { %>selected<% } %>> <%= data2[i].name %></option>
+                    <% } %>
+                    <% } %>
+                    </select>
+                        <div class="form-group">
+                            <label for="person"> นักศึกษา (Person) </label> <a href="/person/new"> เพิ่ม </a>
+                            <select class="form-control" id="person" name="person">
+                                <option> กรุณาเลือก </option>
+                                <% if(data3) { %>
+                                    <% for(var i = 0; i<data3.length;i++){ %>
+                                    <option value="<%= data3[i].id %>" <% if(data3[i].id==data4[0].person) { %>selected<% } %>> <%= data3[i].name %></option>
+                                    <% } %>
+                                    <% } %>                                                                                                 
+                            </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="start"> วันที้เพื่ม (ดด/วว/ปปปป) </label>
+                    <input type="date" id="start" name="start" value="<%= data4[0].start.toISOString().substring(0, 10) %>" class="form-control">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success"> แก้ไข </button>
+                <a href="/pr" class="btn btn-primary"> ย้อนกลับ </a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<%- include ('.../_footer') %>

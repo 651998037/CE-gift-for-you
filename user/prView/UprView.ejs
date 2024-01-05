@@ -1,0 +1,42 @@
+<%- include ('../_header') -%>
+<br>
+<br>
+<h2 style="text-align: center;">การประชาสัมพันธิ์ (user)</h2>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <a href="/pr/new" class="btn btn-info"> เพิ่ม </a>
+            <div class="container mt-3">
+            <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>ลำดับ</th>
+                <th>โฆษณา</th>
+                <th>สื่อ</th>
+                <th>คน</th>
+                <th>Start Date
+                <br> (ปปปป/ดด/วว)</th>
+            </tr>
+            </thead>
+            <% if (data) { %>
+        <%     for(var i=0;i<data.length;i++) { %>
+            <tr>
+                <td> <%= (i+1) %></td>
+                <td> <%= data[i].aname%></td>
+                <td> <%= data[i].mname%></td>
+                <td> <%= data[i].pname%></td>
+                <!-- <% var startDate = new Date(data[i].start); %>
+                <% startDate.setDate(startDate.getDate() + 1); %>
+                <% var isoDate = startDate.toISOString().split('T')[0]; %>
+                <td><%= isoDate %></td> -->
+                <td> <%= data[i].start.toISOString().split('T')[0]%></td> 
+                
+            </tr>
+        <% } %>
+    <% } %>
+</table>
+        </div>
+    </div>
+</div>
+
+<%- include ('../_footer') -%>

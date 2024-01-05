@@ -1,0 +1,51 @@
+<%- include("../_header") %>
+<div class="container mt-4">
+    <div class="text-center mb-4">
+        <h1>รับแจ้ง</h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-15">
+            <a href="/Ureport/add" class="btn btn-primary">เพิ่มข้อมูล</a>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-white">
+                        <tr>
+                            <th scope="col">ลำดับ</th>
+                            <th scope="col">ประเภท</th>
+                            <th scope="col">ยี่ห้อ/โมเดล</th>
+                            <th scope="col">ปัญหา</th>
+                            <th scope="col">วันรายงาน</th>
+                            <th scope="col">ผู้รับรายงาน</th>
+                            <th scope="col">สถานที่</th>
+                            <th scope="col">คน</th>
+                            <th scope="col">เบอร์</th>
+                            <th scope="col">เพิ่มเติม</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(data){ %>
+                            <% for (var i=0; i<data.length; i++){ %>
+                                <tr>
+                                    <th scope="row"><%= (i+1) %></th>
+                                    <td><%= data[i].Type %></td>
+                                    <td><%= data[i].BrandModel %></td>
+                                    <td><%= data[i].Problem %></td>
+                                    <td><%= data[i].Reportday %></td>
+                                    <td><%= data[i].Reportrecipient %></td>
+                                    <td><%= data[i].Place %></td>
+                                    <td><%= data[i].Person %></td>
+                                    <td><%= data[i].Phone %></td>
+                                    <td>
+                                        <a href="/Ureport/delete/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a>
+                                        <a href="/Ureport/edit/<%= data[i].id %>" class="btn btn-primary">แก้ไข</a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("../_footer") %>

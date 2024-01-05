@@ -1,0 +1,81 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<br>
+
+<style>
+    .container {
+        max-width: 600px; /* Adjust the max-width as needed */
+        margin-top: 50px; /* Add some top margin for better spacing */
+    }
+
+    .form-group {
+        margin-bottom: 20px; /* Add bottom margin to each form group */
+    }
+
+    h3 {
+        color: #183453; /* Set the heading color to Bootstrap's primary color */
+    }
+
+    /* Style the buttons */
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+</style>
+
+<h3 align="center"> ADD PR </h3>
+<div class="container mt-6">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form action="/pr/add" method="post">
+                <div class="form-group">
+                    <label> โฆษณา (Ads) </label> <a href="/ads/list"> เพื่ม </a>
+                    <select class="form-control" name="ads">
+                        <option> กรุณาเลือก </option>
+                        <% if(data1) { %>
+                            <% for(var i = 0; i<data1.length;i++){ %>
+                                <option value="<%= data1[i].id %>"> <%= data1[i].name %> </option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label> สื่อ (Media) </label> <a href="/media/list"> เพื่ม </a>
+                    <select class="form-control" name="media">
+                        <option> กรุณาเลือก </option>
+                        <% if(data2) { %>
+                            <% for(var i = 0; i<data2.length;i++){ %>
+                                <option value="<%= data2[i].id %>"> <%= data2[i].name %> </option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label> นักศึกษา (Person) </label> <a href="/person/list"> เพื่ม </a>
+                    <select class="form-control" name="person">
+                        <option> กรุณาเลือก </option>
+                        <% if(data3) { %>
+                            <% for(var i = 0; i<data3.length;i++){ %>
+                                <option value="<%= data3[i].id %>"> <%= data3[i].name %> </option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="start">วันที้เพื่ม (Start Date)</label>
+                    <input type="date" name="start" placeholder="Start Date" class="form-control">
+                </div>
+                <a href="/pr" class="btn btn-danger">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-success">บันทึกข้อมูล</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include ('../_footer') %>

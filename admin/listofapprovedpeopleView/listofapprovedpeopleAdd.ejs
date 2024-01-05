@@ -1,0 +1,27 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/listofapprovedpeople/add" method="post">
+                <div class="form-group">
+                    <label for="person">ผู้มีสิทธิ์อนุมัติ</label>
+                    <select class="form-control" name="person">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data1) { %>
+                            <% for (var i = 0; i < data1.length; i++) { %>
+                                <option value="<%= data1[i].id %>"><%= data1[i].name %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <br>
+                <a href="/listofapprovedpeople/list" class="btn btn-primary">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

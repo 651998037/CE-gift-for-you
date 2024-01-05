@@ -1,0 +1,33 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">เพิ่มบุคคล</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">
+            <form action="/person/add" method="post" class="w-50">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" placeholder="ชื่อ" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" name="phone" placeholder="เบอร์โทรศัพท์" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="lineid">LineID</label>
+                    <input type="text" name="lineid" placeholder="ไลน์ไอดี" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <input type="text" name="gender" placeholder="เพศ" class="form-control">
+                </div>
+                <br>
+                <a href="/person/list" class="btn btn-primary">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

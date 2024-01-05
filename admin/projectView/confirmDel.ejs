@@ -1,0 +1,26 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<style>
+    
+body {
+    margin-top: 13em; /* ระยะห่างด้านบนของ body 2 เซ็นติเมตร */
+}
+</style>
+<body>
+    <h1 align="center">ยืนยันการลบ</h1>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12 d-flex justify-content-center">   
+                <form method="post" action="<%= data ? '/pr/delete/' + data.id : '' %>"  class="w-120 mx-auto">
+                    <% if (data && data.isMedia) { %>
+                        <a align="center" href="/project/list/" class="btn btn-danger mx-auto">ย้อนกลับ</a>
+                    <% } else { %>
+                        <a align="center" href="/project/list/" class="btn btn-danger mx-auto">ย้อนกลับ</a>
+                    <% } %>
+                    <button align="center" type="submit" class="btn btn-info mx-auto">ยืนยัน</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include("../_footer"); -%>

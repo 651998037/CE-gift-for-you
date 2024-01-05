@@ -1,0 +1,55 @@
+<%- include ('.../_header') %>
+<br>
+<br>
+<br>
+<h3 align="center"> ADD PR </h3>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-7">
+
+            <form action="/pr/add" method="post">
+                <div class="form-group">
+                    <label> โฆษณา (Ads) </label> <a href="/ads/new"> เพื่ม </a>
+                    <select class="form-control" name="ads">
+                        <option> กรุณาเลือก </option>
+                        <% if(data1) { %>
+                        <% for(var i = 0; i<data1.length;i++){ %>
+                        <option value="<%= data1[i].id %>"> <%= data1[i].name %> </option>
+                    <% } %>
+                    <% } %>
+                            </select>
+                            <div class="form-group">
+                                <label> สื่อ (Media) </label> <a href="/media/new"> เพื่ม </a>
+                                <select class="form-control" name="media">
+                                    <option> กรุณาเลือก </option>
+                                    <% if(data2) { %>
+                                    <% for(var i = 0; i<data2.length;i++){ %>
+                                    <option value="<%= data2[i].id %>"> <%= data2[i].name %> </option>
+                                <% } %>
+                                <% } %>
+                            </select>
+                            <div class="form-group">
+                                <label> นักศึกษา (Person) </label> <a href="/person/new"> เพื่ม </a>
+                                <select class="form-control" name="person">
+                                    <option> กรุณาเลือก </option>
+                                    <% if(data3) { %>
+                                    <% for(var i = 0; i<data3.length;i++){ %>
+                                    <option value="<%= data3[i].id %>"> <%= data3[i].name %> </option>
+                                <% } %>
+                                <% } %>
+                                </select>
+                <br>
+                <div class="form-group">
+                    <label for="start">วันที้เพื่ม (Start Date)</label>
+                    <input type="date" name="start" placeholder="Start Date" class="form-control">
+                </div>
+                <br>
+                <a href="/pr" class="btn btn-primary">ย้อนกลับ</a> &nbsp;
+                &nbsp;<button type="submit" class="btn btn-success"> บันทึกข้อมูล </button>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('.../_footer') %>

@@ -1,0 +1,45 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <form action="/Uprepare/add" method="post" class="w-50">
+                <div class="form-group">
+                    <label for="donationplace">Place:</label>
+                    <select class="form-control" name="donationplace">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data2 && data2.length > 0) { %>
+                            <% for (var i = 0; i < data2.length; i++) { %>
+                                <option value="<%= data2[i].id %>"><%= data2[i].place %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="travel">Travel:</label>
+                    <select class="form-control" name="travel">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data3 && data3.length > 0) { %>
+                            <% for (var i = 0; i < data3.length; i++) { %>
+                                <option value="<%= data3[i].id %>"><%= data3[i].travel %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="donationday">New date:</label>
+                    <input type="date" name="donationday" class="form-control">
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+                <a href="/Uprepare/list" class="btn btn-primary">ย้อนกลับ</a>
+                
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

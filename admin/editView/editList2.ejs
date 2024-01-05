@@ -1,0 +1,47 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">แก้ไข</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>คนแก้</th>
+                        <th>รับแจ้ง</th>
+                        <th>ดำเนินการ</th>
+                        <th>วันที่ดำเนินการ</th>
+                        <th>เพิ่มเติม</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].editor %></td>
+                                <td><%= data[i].report %></td>
+                                <td><%= data[i].carryout %></td>
+                                <td><%= data[i].carryoutday %></td>
+                                <td>
+                                    <a href="/edit/edit/<%= data[i].id %>" class="btn btn-info style=width: 80px;">แก้ไข</a>
+                                    <a href="/edit/delete/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            <a href="/edit/add" class="btn btn-primary">เพิ่ม</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include("../_footer"); -%>

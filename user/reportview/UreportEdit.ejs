@@ -1,0 +1,66 @@
+<%- include("../_header"); -%>
+<h3 align="center">Report Edit</h3>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <form action="/Ureport/edit/<%= data4 && data4[0] ? data4[0].id : '' %>" method="post">
+                    <div class="form-group">
+                    <label for="type">ประเภท</label>
+                    <select class="form-control" id="type" name="type">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data1) { %>
+                            <% for (var i = 0; i < data1.length; i++) { %>
+                                <option value="<%= data1[i].id %>" <% if(data4 && data4[0] && data1[i].id==data4[0].type){ %>selected<% } %> ><%= data1[i].name %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="brandModel">ยี่ห้อ/โมเดล</label>
+                    <input type="text" id="brandModel" name="brandModel" value="<%= data4 && data4[0] ? data4[0].brandModel : '' %>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="problem">ปัญหา</label>
+                    <input type="text" id="problem" name="problem" value="<%= data4 && data4[0] ? data4[0].problem: '' %>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="reportday">วันรายงาน</label>
+                    <input type="date" id="reportday" name="reportday" value="<%= data4 && data4[0] ? data4[0].reportday : '' %>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="reportrecipient">ผู้รับรายงาน</label>
+                    <input type="text" id="reportrecipient" name="reportrecipient" value="<%= data4 && data4[0] ? data4[0].reportrecipient : '' %>" class="form-control">
+                </div>                
+                <div class="form-group">
+                    <label for="place">สถานที่</label>
+                    <select class="form-control" id="place" name="place">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data2) { %>
+                            <% for (var i = 0; i < data2.length; i++) { %>
+                                <option value="<%= data2[i].id %>" <% if(data4 && data4[0] && data2[i].id==data4[0].place){ %>selected<% } %> ><%= data2[i].place %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="person">คน</label>
+                    <select class="form-control" id="person" name="person">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data3) { %>
+                            <% for (var i = 0; i < data3.length; i++) { %>
+                                <option value="<%= data3[i].id %>" <% if(data4 && data4[0] && data3[i].id==data4[0].person){ %>selected<% } %> ><%= data3[i].name %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone">เบอร์</label>
+                    <input type="text" id="phone" name="phone" value="<%= data4 && data4[0] ? data4[0].phone : '' %>" class="form-control">
+                </div>
+                <a href="/Ureport/list" class="btn btn-primary">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

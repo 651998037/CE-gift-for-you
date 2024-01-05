@@ -1,0 +1,81 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">รายชื่อคนไปบริจาค</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15 ">
+            <table class="table table-bordered table-hover ">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>สถานที่บริจาค</th>
+                        <th>ชื่อ</th>
+                        <th>เบอร์</th>
+                        <th>ไลนไอดี</th>
+                        <th>เพศ</th>
+                        <th>เพิ่มเติม</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>                               
+                                <td><%= data[i].prepare %></td>  
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].phone %></td>
+                                <td><%= data[i].lineid %></td>
+                                <td><%= data[i].gender %></td>
+                                <td>
+                                    <a href="/Udeliveryperson/edit/<%= data[i].id %>" class="btn btn-success style=width: 80px;">แก้ไข</a>
+                                    <a href="/Udeliveryperson/del/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            <a href="/Udeliveryperson/add/" class="btn btn-primary">เพิ่ม</a>
+        </div>
+    </div> 
+</div>
+<br>
+<br>
+<!-- <h1 align="center">รายชื่อคนไปบริจาค</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15 ">
+            <table class="table table-bordered table-hover ">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>วันบริจาค</th>
+                        <th>ชื่อ</th>
+                        <th>เบอร์</th>
+                        <th>ไลนไอดี</th>
+                        <th>เพศ</th>
+                        <th>เพิ่มเติม</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>                               
+                                <td><%= data[i].prepare %></td>
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].phone %></td>
+                                <td><%= data[i].lineid %></td>
+                                <td><%= data[i].gender %></td>
+                                <td>                                  
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+    </div> 
+</div> -->
+<%- include("../_footer"); -%>

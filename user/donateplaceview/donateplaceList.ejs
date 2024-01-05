@@ -1,0 +1,83 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<h1 align="center">ที่บริจาค</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>ชื่อสถานที่</th>
+                        <th>ที่อยู่</th>
+                        <th>ผู้ติดต่อ</th>
+                        <th>เบอร์</th>
+                        <th>เพิ่มเติม</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].place %></td>
+                                <td><%= data[i].address %></td>
+                                <td><%= data[i].contactperson %></td>
+                                <td><%= data[i].phone %></td>
+                                
+                                <td>
+                                    <a href="/Udonateplace/edit/<%= data[i].id %>" class="btn btn-primary style=width: 80px;">แก้ไข</a>
+                                    <a href="/Udonateplace/delete/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            <a href="/Udonateplace/add" class="btn btn-primary">เพิ่ม</a>
+        </div>
+    </div>
+</div>
+
+
+<h1 align="center">ที่บริจาค</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>สถานที่</th>
+                        <th>ที่อยู่</th>
+                        <th>ผู้ติดต่อ</th>
+                        <th>เบอร์</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].place %></td>
+                                <td><%= data[i].address %></td>
+                                <td><%= data[i].contactperson %></td>
+                                <td><%= data[i].phone %></td>
+                                <td>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+                
+            </table>
+            <!-- <a href="#" href="/Udonatedplace/add" class="btn btn-primary">เพิ่ม</a> -->
+        </div>
+    </div>
+</div>
+
+
+<%- include("../_footer"); -%>

@@ -1,0 +1,54 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<h1 align="center">Add</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">
+            <form action="/Uchecklist/add" method="post" class="w-50">
+                <div class="form-group">
+                    <label for="devicetype">ประเภทอุปกรณ์</label>
+                    <select class="form-control" name="devicetype">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data3) { %>
+                            <% for (var i = 0; i < data3.length; i++) { %>
+                                <option value="<%= data3[i].id %>"><%= data3[i].name %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">ชื่อผู้บริจาค</label>
+                    <select class="form-control" name="name">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data2) { %>
+                            <% for (var i = 0; i < data2.length; i++) { %>
+                                <option value="<%= data2[i].id %>"><%= data2[i].name %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="amount">จำนวน</label>
+                    <input type="text" name="amount" placeholder="จำนวน" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkday">วันที่เช็ค</label>
+                    <input type="date" name="checkday"  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="status">สถานะ</label>
+                    <input type="text" name="status" placeholder="ดี/ไม่ดี" class="form-control">
+                </div>
+                
+                <br>
+                <button type="submit" class="btn btn-primary">บันทึก</button>
+                <a href="/Uchecklist/list" class="btn btn-primary">กลับ</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

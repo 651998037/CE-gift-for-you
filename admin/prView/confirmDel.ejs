@@ -1,0 +1,21 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<body>
+    <h1 align="center">ยืนยันการลบ</h1>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12 d-flex justify-content-center">   
+                <form method="post" action="<%= data ? '/pr/delete/'+ data.id : '' %>"  class="w-120 mx-auto">
+                    <% if (data) { %>
+                        <a align="center" href="/pr" class="btn btn-info mx-auto">ย้อนกลับ</a>
+                    <% } else { %>
+                        <a align="center" href="/pr" class="btn btn-info mx-auto">ย้อนกลับ</a>
+                    <% } %>
+                    &nbsp;
+                    <button align="center" type="submit" class="btn btn-danger mx-auto">ยืนยัน</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include("../_footer"); -%>

@@ -1,0 +1,73 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<h1 align="center">ทดสอบและเทส</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <a href="/Ucraftandtest/add" class="btn btn-primary">เพิ่ม</a>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>เบิก</th>
+                        <th>สถานะ</th>
+                        <th>วันที่เสร็จ</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].withdraw %></td>
+                                <td><%= data[i].status %></td>
+                                <td><%= data[i].completiondate %></td>
+                                <td> 
+                                    <a href="/Ucraftandtest/edit/<%= data[i].id %>" class="btn btn-primary style=width: 80px;">แก้ไข</a>
+                                    <a href="/Ucraftandtest/delete/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<h1 align="center">ทดสอบและเทส</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>เบิก</th>
+                        <th>สถานะ</th>
+                        <th>วันที่เสร็จ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].withdraw %></td>
+                                <td><%= data[i].status %></td>
+                                <td><%= data[i].completiondate %></td>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%- include("../_footer"); -%>

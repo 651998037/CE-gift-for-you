@@ -1,0 +1,95 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<h1 align="center">ตรวจสอบอุปกรณ์</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>ประเภทอุปกรณ์</th>
+                        <th>ยี่ห้อ</th>
+                        <th>โมเดล</th>
+                        <th>ชื่อ</th>
+                        <th>เบอร์โทร</th>
+                        <th>จำนวน</th>
+                        <th>วันที่เช็ค</th>
+                        <th>สถานะ</th>
+                        <th>เพิ่มเติม</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].dename %></td>
+                                <td><%= data[i].brand %></td>
+                                <td><%= data[i].model %></td>
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].phone %></td>
+                                <td><%= data[i].amount %></td>
+                                <td><%= data[i].checkday %></td>
+                                <td><%= data[i].status %></td>
+                                <td>
+                                    <a href="/Uchecklist/edit/<%= data[i].id %>" class="btn btn-primary style=width: 80px;">แก้ไข</a>
+
+                                    <a href="/Uchecklist/delete/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            <a href="/Uchecklist/add" class="btn btn-primary">Add</a>
+        </div>
+    </div>
+</div>
+
+
+<h1 align="center">ตรวจสอบอุปกรณ์</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>ประเภทอุปกรณ์</th>
+                        <th>ยี่ห้อ</th>
+                        <th>โมเดล</th>
+                        <th>ชื่อ</th>
+                        <th>เบอร์โทร</th>
+                        <th>จำนวน</th>
+                        <th>วันที่เช็ค</th>
+                        <th>สถานะ</th>
+                                              
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].dename %></td>
+                                <td><%= data[i].brand %></td>
+                                <td><%= data[i].model %></td>
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].phone %></td>
+                                <td><%= data[i].amount %></td>
+                                <td><%= data[i].checkday %></td>
+                                <td><%= data[i].status %></td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%- include("../_footer"); -%>

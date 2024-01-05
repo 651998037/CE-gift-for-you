@@ -1,0 +1,107 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<h1 align="center">Uedit</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15 ">
+            <table class="table table-bordered table-hover ">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>คนแก้ไข</th>
+                        <th>เบอร์</th>
+                        <th>ไลนไอดี</th>
+                        <th>ประเภท</th>
+                        <th>ยี่ห้อ</th>
+                        <th>ปัญหา</th>
+                        <th>วันรายงาน</th>
+                        <th>ผู้รับรายงาน</th>
+                        <th>สถานที่</th>
+                        <th>การดำเนินการ</th>
+                        <th>วันที่ดำเนินการ</th>
+                        <th>เพิ่มเติม</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].phone %></td>
+                                <td><%= data[i].lineid %></td>
+                                <td><%= data[i].nametype %></td>
+                                <td><%= data[i].bran %></td>
+                                <td><%= data[i].problem %></td>
+                                <td><%= data[i].reportday %></td>
+                                <td><%= data[i].reportrecipient %></td>
+                                <td><%= data[i].place %></td>
+                                <td><%= data[i].carryout %></td>
+                                <td><%= data[i].carryoutday.toISOString().split('T')[0] %></td>
+                                <td>
+                                    <a href="/Uedit/edit/<%= data[i].id %>" class="btn btn-primary style=width: 80px;">แก้ไข</a>
+
+                                    <a href="/Uedit/del/<%= data[i].id %>" class="btn btn-danger">ลบข้อมูล</a> 
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+            <a href="/Uedit/add/" class="btn btn-primary">Add</a>
+        </div>
+    </div>
+</div>
+
+<br>
+<h1 align="center">Uedit</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15 ">
+            <table class="table table-bordered table-hover ">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>คนแก้ไข</th>
+                        <th>เบอร์</th>
+                        <th>ไลนไอดี</th>
+                        <th>ประเภท</th>
+                        <th>ยี่ห้อ</th>
+                        <th>ปัญหา</th>
+                        <th>วันรายงาน</th>
+                        <th>ผู้รับรายงาน</th>
+                        <th>สถานที่</th>
+                        <th>การดำเนินการ</th>
+                        <th>วันที่ดำเนินการ</th>
+                        <th>เพิ่มเติม</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].phone %></td>
+                                <td><%= data[i].lineid %></td>
+                                <td><%= data[i].nametype %></td>
+                                <td><%= data[i].bran %></td>
+                                <td><%= data[i].problem %></td>
+                                <td><%= data[i].reportday %></td>
+                                <td><%= data[i].reportrecipient %></td>
+                                <td><%= data[i].place %></td>
+                                <td><%= data[i].carryout %></td>
+                                <td><%= data[i].carryoutday.toISOString().split('T')[0] %></td>
+                                <td>
+                                     
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

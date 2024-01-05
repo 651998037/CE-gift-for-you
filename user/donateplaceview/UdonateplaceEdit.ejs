@@ -1,0 +1,35 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<body>
+    <h1 align="center">Edit</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">   
+            <form method="post" action="/Udonateplace/edit/<%= data.id %>" class="w-50">
+
+
+                <div class="form-group">
+                    <label for="place">place:</label>
+                    <input type="text" class="form-control" id="place" Name="place" value="<%= data.place %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">address:</label>
+                    <input type="text" class="form-control" id="address" Name="address" value="<%= data.address %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactperson">contactperson:</label>
+                    <input type="text" class="form-control" id="contactperson" Name="contactperson" value="<%= data.contactperson %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">phone:</label>
+                    <input type="text" class="form-control" id="phone" Name="phone" value="<%= data.phone %>" required>
+                </div>
+                <br>
+                <a href="/Udonateplace/list" class="btn btn-primary">ย้อนกลับ</a>
+               <button type="submit" class="btn btn-success">บันทึก</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

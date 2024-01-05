@@ -1,0 +1,33 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">เพิ่มข้อมูล</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">
+            <form action="/donateplace/add" method="post" class="w-50">
+                <div class="form-group">
+                    <label for="place">ชื่อสถานที่</label>
+                    <input type="text" name="place" placeholder="ชื่อสถานที่" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="address">ที่อยู่</label>
+                    <input type="text" name="address" placeholder="ที่อยู่" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="contactperson">ผู้ติดต่อ</label>
+                    <input type="text" name="contactperson" placeholder="ผู้ติดต่อ" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="phone">เบอร์ติดต่อ</label>
+                    <input type="text" name="phone" placeholder="เบอร์ติดต่อ" class="form-control">
+                </div>
+                <br>
+                <a href="/donateplace/list" class="btn btn-primary">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

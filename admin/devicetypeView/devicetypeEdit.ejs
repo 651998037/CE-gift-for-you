@@ -1,0 +1,22 @@
+<%- include("../_header1"); -%>
+<br>
+<br>
+<h1 align="center">แก้ไขข้อมูล</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">   
+            <form method="post" action="/devicetype/edit/<%= data.id %>" class="w-50">
+                <div class="form-group">
+                    <label for="name">ชื่ออุปกรณ์</label>
+                    <input type="text" class="form-control" id="name" Name="name" value="<%= data.name %>" >
+                </div>
+                <div id="name-error" class="text-danger"></div>
+                <br>
+                <a href="/devicetype/list" class="btn btn-danger">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>

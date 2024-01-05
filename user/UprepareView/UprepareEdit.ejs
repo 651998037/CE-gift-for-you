@@ -1,0 +1,50 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<h1 align="center">แก้ไข</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">   
+            <form action="/Uprepare/edit/<%= data && data[0] ? data[0].id : '' %>"  method="post" class="w-50">
+                <div class="form-group">
+                    <label for="donationplace">Place:</label>
+                    <select class="form-control" name="donationplace">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data2) { %>
+                            <% for (var i = 0; i < data2.length; i++) { %>
+                                <option value="<%= data2[i].id %>" <% if (data && data[0] && data2[i].id == data[0].donationplace) { %>selected<% } %>><%= data2[i].place %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="travel">Travel:</label>
+                    <select class="form-control" name="travel">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data3) { %>
+                            <% for (var i = 0; i < data3.length; i++) { %>
+                                <option value="<%= data3[i].id %>" <% if (data && data[0] && data3[i].id == data[0].travel) { %>selected<% } %>><%= data3[i].travel %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="donationday">New Date:</label>
+                    <input type="date" class="form-control" id="donationday" name="donationday" value="<%= data[0].donationday.toISOString().split('T')[0] %>">
+                </div> 
+                <br>
+                <br>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+                <a href="/Uprepare/list" class="btn btn-primary">กลับ</a>
+                
+            </form>            
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>
+
+
+
+

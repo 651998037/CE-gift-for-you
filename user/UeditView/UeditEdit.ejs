@@ -1,0 +1,53 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<br>
+<h1 align="center">Edit</h1>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <form action="/Uedit/save/<%= data3 && data3[0] ? data3[0].id : '' %>" method="post" class="w-50">
+                <div class="form-group">
+                    <br>
+                <div class="form-group">
+                    <label for="editor">editor</label> <!--&nbsp;&nbsp;&nbsp;<a href="/ads/list">เพิ่ม</a>-->
+                    <select class="form-control" id="editor" name="name">
+                        <option value="">กรุณาเลือก</option>
+                        <% if (data1) { %>
+                            <% for (var i = 0; i < data1.length; i++) { %>
+                                <option value="<%= data1[i].id %>" <% if(data3 && data3[0] && data1[i].id==data3[0].editor){ %>selected<% } %> ><%= data1[i].name %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="report">problem</label> <!-- &nbsp;&nbsp;&nbsp;<a href="/media/list">เพิ่ม</a> -->
+                   <select class="form-control" id="report" name="problem">
+                       <option value="">กรุณาเลือก</option>
+                       <% if (data2) { %>
+                           <% for (var i = 0; i < data2.length; i++) { %>
+                               <option value="<%= data2[i].id %>" <% if(data3 && data3[0] && data2[i].id==data3[0].report){ %>selected<% } %> ><%= data2[i].problem %></option>
+                           <% } %>
+                       <% } %>
+                   </select>
+               </div>
+               <br>
+               <div class="form-group">
+                <label for="carryout"> carryout </label>
+                <input type="text" id="carryout" name="carryout" value="<%= data3 && data3[0] ? data3[0].carryout : '' %>" class="form-control">
+            </div>
+                <br>
+                <div class="form-group">
+                    <label for="carryoutday"> carryoutday </label>
+                    <input type="text" id="carryoutday" name="carryoutday" value="<%= data3 && data3[0] ? (new Date(data3[0].carryoutday)).toLocaleDateString('th-TH') : '' %>" class="form-control">
+                </div>
+                
+                <br>
+                <button type="submit" class="btn btn-primary">บันทึก</button>
+                <a href="/Uedit/list" class="btn btn-danger">ย้อนกลับ</a>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../_footer"); -%>

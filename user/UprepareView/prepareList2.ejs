@@ -1,0 +1,84 @@
+<%- include("../_header"); -%>
+<br>
+<br>
+<br>
+<h1 align="center">สถานที่และวันที่บริจาค</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <a href="/Uprepare/add" class="btn btn-primary">เพื่ม</a>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ลำดับที่</th>
+                        <th>สถานที่</th>
+                        <th>ที่อยู่</th>
+                        <th>ผู้ติดต่อ</th>
+                        <th>เบอร์โทร</th>
+                        <th>การเดินทาง</th>
+                        <th>วันที่</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].donationplace %></td>
+                                <td><%= data[i].address %></td>
+                                <td><%= data[i].person %></td>
+                                <td><%= data[i].phone %></td>
+                                <td><%= data[i].travel %></td>
+                                <td><%= data[i].donationday.toISOString().split('T')[0] %></td>
+                                <td>
+                                <a href="/Uprepare/edit/<%= data[i].id %>" class="btn btn-primary style=width: 80px;">แก้ไข</a>
+                                <a href="/Uprepare/delete/<%= data[i].id %>" class="btn btn-danger style=width: 80px;">ลบข้อมูล</a>
+
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-15">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ลำดับที่</th>
+                        <th>สถานที่</th>
+                        <th>ที่อยู่</th>
+                        <th>ผู้ติดต่อ</th>
+                        <th>เบอร์โทร</th>
+                        <th>การเดินทาง</th>
+                        <th>วันที่</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data && data.length > 0) { %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= data[i].donationplace %></td>
+                                <td><%= data[i].address %></td>
+                                <td><%= data[i].person %></td>
+                                <td><%= data[i].phone %></td>
+                                <td><%= data[i].travel %></td>
+                                <td><%= data[i].donationday.toISOString().split('T')[0] %></td>
+                                <td>
+
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include("../_footer"); -%>
